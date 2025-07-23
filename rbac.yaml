@@ -1,0 +1,24 @@
+apiVersion: v1
+data:
+  policy.csv: |
+    g, kube:admin, role:admin
+  policy.default: role:readonly
+  scopes: '[groups]'
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-07-23T19:47:50Z"
+  labels:
+    app.kubernetes.io/managed-by: openshift-gitops-cntk
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-rbac-cm
+  namespace: openshift-gitops
+  ownerReferences:
+  - apiVersion: argoproj.io/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ArgoCD
+    name: openshift-gitops-cntk
+    uid: ef3e78c9-60be-42b7-975e-82725e544388
+  resourceVersion: "1268809"
+  uid: 6425558d-3887-433a-8963-0b00bf437720
